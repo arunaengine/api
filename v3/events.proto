@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package aruna.api.v3;
 
+import "models.proto";
+
 service EventsService {
   rpc GetEvents(GetEventsRequest) returns (GetEventsResponse) {}
 }
