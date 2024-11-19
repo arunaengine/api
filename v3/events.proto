@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package aruna.api.v3;
+
+service EventsService {
+  rpc GetEvents(GetEventsRequest) returns (GetEventsResponse) {}
+}
+
+
+message GetEventsRequest {
+  string start_after = 1; // Base64 encoded event_id
+  int32 batch_size = 2;
+}
+
+message GetEventsResponse {
+  repeated models.Event events = 1; // List of events
+}

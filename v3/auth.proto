@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package aruna.api.v3;
+
+service AuthService {
+  rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse) {}
+}
+
+message AuthorizeRequest {
+  string token = 1;
+  repeated string resource_ids = 2;
+  models.Permission permission = 3;
+  string current_state = 4;
+}
+
+message AuthorizeResponse {
+  bool authorized = 1;
+  string message = 2;
+  bool should_update = 3;
+}
