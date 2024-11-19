@@ -11,7 +11,7 @@ service AuthService {
 message AuthorizeRequest {
   string token = 1;
   repeated string resource_ids = 2;
-  models.Permission permission = 3;
+  aruna.api.v3.Permission permission = 3;
   string current_state = 4;
 }
 

@@ -15,5 +15,5 @@ message GetEventsRequest {
 }
 
 message GetEventsResponse {
-  repeated models.Event events = 1; // List of events
+  repeated aruna.api.v3.Event events = 1; // List of events
 }
