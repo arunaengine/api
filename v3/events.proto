@@ -8,10 +8,10 @@ service EventsService {
   rpc GetEvents(GetEventsRequest) returns (GetEventsResponse) {}
 }
 
-
 message GetEventsRequest {
-  string start_after = 1; // Base64 encoded event_id
-  int32 batch_size = 2;
+  string consumer_id = 1;
+  string start_after = 2; // Base64 encoded event_id
+  int32 batch_size = 3;
 }
 
 message GetEventsResponse {
