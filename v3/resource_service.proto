@@ -93,3 +93,7 @@ message RegisterDataRequest {
   string proxy_id = 2;
   repeated aruna.api.v3.Hash hashes = 3;
 }
+
+message RegisterDataResponse {
+  aruna.api.v3.Resource resource = 1;
+}
