@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package aruna.api.v3;
+
+import "models.proto";
+
+service InfoService {
+  rpc GetAllRelationInfos(GetAllRelationInfosRequest) returns (GetAllRelationInfosResponse) {}
+}
+
+message GetAllRelationInfosRequest {}
+
+message GetAllRelationInfosResponse {
+  repeated aruna.api.v3.RelationInfo relation_infos = 1;
+}

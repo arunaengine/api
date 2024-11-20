@@ -29,7 +29,6 @@ message RegisterUserResponse {
 
 message CreateTokenRequest {
     string name = 1;
-    //uint64 expires_at = 2;
     google.protobuf.Timestamp expires_at = 2;
     string resource_id = 3;
     aruna.api.v3.Permission permission = 4;

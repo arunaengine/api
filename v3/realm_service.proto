@@ -9,6 +9,7 @@ service RealmService {
   rpc GetRealm(GetRealmRequest) returns (GetRealmResponse) {}
   rpc AddGroup(AddGroupRequest) returns (AddGroupResponse) {}
   rpc RemoveGroup(RemoveGroupRequest) returns (RemoveGroupResponse) {}
+  rpc GetGroupsFromRealm(GetRealmRequest) returns (GetGroupsFromRealmResponse) {}
 }
 
 message CreateRealmRequest {
@@ -37,5 +38,10 @@ message GetRealmRequest { string id = 1; }
 
 message GetRealmResponse {
   aruna.api.v3.Realm realm = 1;
-  repeated string group_ids = 2;
+}
+
+message GetGroupsFromRealmRequest { string realm_id = 1; }
+
+message GetGroupsFromRealmResponse {
+  repeated aruna.api.v3.Group groups = 1;
 }

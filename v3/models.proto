@@ -98,6 +98,13 @@ message Relation {
   string relation_type = 3;
 }
 
+message RelationInfo {
+  uint32 index = 1;
+  string forward_type = 2;
+  string reverse_type = 3;
+  bool internal = 4;
+}
+
 message Realm {
   string id = 1;
   string tag = 2; // foobar1 --> "Region" -> [a-z0-9-]{16} 

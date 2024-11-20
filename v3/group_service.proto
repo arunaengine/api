@@ -9,18 +9,7 @@ service GroupService {
     rpc GetGroup(GetGroupRequest) returns (GetGroupResponse) {}
     rpc AddUser(AddUserRequest) returns (AddUserResponse) {}
     rpc SharePermissionToGroup(SharePermissionToGroupRequest) returns (SharePermissionToGroupResponse) {}
-
-    // rpc CreateServiceAccount(CreateServiceAccountRequest) returns (CreateServiceAccountResponse) {}
-    // rpc DeleteServiceAccount(DeleteServiceAccountRequest) returns (DeleteServiceAccountResponse) {}
-    // rpc RenewServiceAccountToken(RenewServiceAccountTokenRequest) returns (RenewServiceAccountTokenResponse) {}
-    // rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {}
-    // rpc GetGroup(GetGroupRequest) returns (GetGroupResponse) {}
-    // rpc RemoveUser(RemoveUserRequest) returns (RemoveUserResponse) {}
-    // rpc UnsharePermissionToGroup(UnsharePermissionToGroupRequest) returns (UnsharePermissionToGroupResponse) {}
-    // 
-    // rpc UpdateName(UpdateNameRequest) returns (UpdateNameResponse) {}
-    // rpc UpdateDescription(UpdateDescriptionRequest) returns (UpdateDescriptionResponse) {}
-    // rpc RequestPermission(RequestPermissionRequest) returns (RequestPermissionResponse) {}
+    rpc GetUsersFromGroup(GetUsersFromGroupRequest) returns (GetUsersFromGroupResponse) {}
 }
   
 message CreateGroupRequest {
@@ -38,7 +27,6 @@ message GetGroupRequest {
 
 message GetGroupResponse {
     aruna.api.v3.Group group = 1;
-    repeated string members = 2;
 }
 
 message AddUserRequest {
@@ -58,3 +46,11 @@ message SharePermissionToGroupRequest {
 }
 
 message SharePermissionToGroupResponse {}
+
+message GetUsersFromGroupRequest {
+    string group_id = 1;
+}
+
+message GetUsersFromGroupResponse {
+    repeated aruna.api.v3.User users = 1;
+}
