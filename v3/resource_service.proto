@@ -10,6 +10,7 @@ service ResourceService {
   rpc CreateResourceBatch(CreateResourceBatchRequest) returns (CreateResourceBatchResponse) {}
   rpc GetResources(GetResourcesRequest) returns (GetResourcesResponse) {}
   rpc GetRelations(GetRelationsRequest) returns (GetRelationsResponse) {}
+  rpc RegisterData(RegisterDataRequest) returns (RegisterDataResponse) {}
 }
 
 message CreateResourceRequest {
@@ -85,4 +86,10 @@ message GetRelationsRequest {
 message GetRelationsResponse {
   repeated aruna.api.v3.Relation relations = 1;
   optional uint64 offset = 2;
+}
+
+message RegisterDataRequest {
+  string resource_id = 1;
+  string proxy_id = 2;
+  repeated aruna.api.v3.Hash hashes = 3;
 }
