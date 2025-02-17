@@ -37,3 +37,12 @@ message GetEventsRequest {
 message GetEventsResponse {
     string events = 1; 
 }
+
+message StatsRequest {}
+message StatsResponse {
+    usize resources = 1;
+    usize projects = 2;
+    usize users = 3;
+    usize storage = 4; // in bytes
+    usize realms = 5;
+}
