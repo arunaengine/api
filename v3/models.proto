@@ -177,6 +177,7 @@ message Component {
 }
 
 enum ComponentType {
+    COMPONENT_TYPE_UNKNOWN = 0;
     COMPONENT_TYPE_SERVER = 1;
     COMPONENT_TYPE_DATA = 2;
     COMPONENT_TYPE_COMPUTE = 3;
