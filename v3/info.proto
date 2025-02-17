@@ -40,9 +40,9 @@ message GetEventsResponse {
 
 message StatsRequest {}
 message StatsResponse {
-    usize resources = 1;
-    usize projects = 2;
-    usize users = 3;
-    usize storage = 4; // in bytes
-    usize realms = 5;
+    uint64 resources = 1;
+    uint64 projects = 2;
+    uint64 users = 3;
+    uint64 storage = 4; // in bytes
+    uint64 realms = 5;
 }
