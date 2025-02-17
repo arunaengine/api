@@ -6,10 +6,34 @@ import "models.proto";
 
 service InfoService {
   rpc GetAllRelationInfos(GetAllRelationInfosRequest) returns (GetAllRelationInfosResponse) {}
+  rpc Search(SearchRequest) returns (SearchResponse) {}
+  rpc Stats(StatsRequest) returns (StatsResponse) {}
+  rpc GetEvents(GetEventsRequest) returns (GetEventsResponse) {}
 }
 
 message GetAllRelationInfosRequest {}
 
 message GetAllRelationInfosResponse {
   repeated aruna.api.v3.RelationInfo relation_infos = 1;
+}
+
+message SearchRequest {
+    string query = 1;
+    string filter = 2;
+    uint64 limit = 3;
+    uint64 offset = 4;
+}
+
+message SearchResponse {
+    uint64 expected_hits = 1; 
+    repeated aruna.api.v3.GenericNode resources = 2;
+}
+
+message GetEventsRequest {
+    string subscriber_id = 1;
+    string acknowledge_from = 2; // optional
+}
+
+message GetEventsResponse {
+    string events = 1; 
 }

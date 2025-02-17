@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package aruna.api.v3;
+
+import "models.proto";
+
+service LicenseService {
+  rpc GetLicense(GetLicenseRequest) returns (GetLicenseResponse) {}
+  rpc CreateLicense(CreateLicenseRequest) returns (CreateLicenseResponse) {}
+}
+
+message GetLicenseRequest {
+    string licenses = 1;
+}
+
+message GetLicenseResponse {
+    aruna.api.v3.License licenses = 1;
+}
+
+message CreateLicenseRequest {
+    string name = 1;
+    string description = 2;
+    string license_terms = 3;
+}
+message CreateLicenseResponse {
+    string license_id = 1;
+}

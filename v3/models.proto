@@ -165,3 +165,33 @@ message Event {
   string event_body = 2;
   repeated string target_ids = 3;
 }
+
+message Component {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    ComponentType component_type = 4;
+    repeated Endpoint endpoints = 5;
+    bool public = 6;
+    bool deleted = 7;
+}
+
+message License {
+    string id = 1;
+    string name = 2; 
+    string description = 3;
+    string terms = 4;
+    bool deleted = 5;
+}
+
+message GenericNode {
+    oneof node {
+	Resource resource = 1;
+	User user = 2;
+	ServiceAccount service_account = 3;
+	Group user_group = 4;
+	Realm realm = 5;
+	Component component = 6;
+	License license = 7;
+    }
+}

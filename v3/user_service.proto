@@ -11,6 +11,8 @@ service UserService {
     rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
     rpc DeleteToken(DeleteTokenRequest) returns (DeleteTokenResponse) {}
     rpc GetTokens(GetTokensRequest) returns (GetTokensResponse) {}
+    rpc GetUserRealms(GetUserRealmsRequest) returns (GetUserRealmsResponse) {}
+    rpc GetGroups(GetGroupsRequest) returns (GetGroupsResponse) {}
 
     // rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
     // TODO: S3 credential requests ?
@@ -56,4 +58,19 @@ message GetTokensRequest {}
 
 message GetTokensResponse {
     repeated aruna.api.v3.Token tokens = 1;
+}
+
+message GetUserRealmsRequest {}
+
+message GetUserRealmsResponse {
+    repeated string realms = 1;
+}
+message GetGroupsRequest {}
+message GetGroupsResponse {
+    repeated GroupWithPermission group_with_permission = 1; 
+}
+
+message GroupWithPermission {
+    aruna.api.v3.Group group = 1;
+    Permission permission = 2;
 }
