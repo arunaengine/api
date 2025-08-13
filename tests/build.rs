@@ -58,10 +58,10 @@ fn compile_services() -> Result<(), Box<dyn std::error::Error>> {
         protos.push(rel_path);
     }
 
-    tonic_build::configure()
+    tonic_prost_build::configure()
         .build_server(true)
         .out_dir("./tests")
-        .compile(
+        .compile_protos(
             &protos,
             &[
                 "./".to_string(),
